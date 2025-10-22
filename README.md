@@ -28,7 +28,7 @@ mpu6050_init():
 mpu6050_data_t data;
 while(1) {
     mpu6050_get_data(&data);
-    printf("Temperature : %.2f", data.Temp);
+    printf("Temperature : %.2f°C\n", data.Temp);
     sleep_ms(500);
 }
 ```
