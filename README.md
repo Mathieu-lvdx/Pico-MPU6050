@@ -1,6 +1,6 @@
 # MPU6050 interface for Rpi Pico
 
-This repository is the simpiest way to use MPU6050. You just have you initialize the MPU6050 and get its data.
+This repository is the simpiest way to use MPU6050. You just have you initialize the MPU6050 and get its data.<br/>
 **Don't forget to import your _pico_sdk_import.cmake_ if you build this project !**
 
 ## How does it work ?
