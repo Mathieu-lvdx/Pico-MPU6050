@@ -1,11 +1,18 @@
-# MPU6050 interface for Rpi Pico
+# MPU6050 interface for Raspberry Pi Pico
 
 This repository is the simpiest way to use MPU6050. You just have you initialize the MPU6050 and get its data.<br/>
 **Don't forget to import your _pico_sdk_import.cmake_ if you build this project !**
 
 ## How does it work ?
 
-`mpu6050_init()` is the fuction which initialize the hardware. It takes no argument. The SDA is wired on GPIO4 and the SCL is wired on GPIO5. You can change these pins in _mpu6050.c_.
+`mpu6050_init()` is the fuction which initialize the hardware. The default connection follows the array below. You can change I²C pins in _mpu6050.c_.
+
+| Pico Pins           | MPU6050 Pins |
+|------------------|-------------|
+| Pin 36 (3V3 Out) | VCC  |
+| Pin 38 (GND)     | GND  |
+| Pin 7 (GPIO 5)   | SCL  |
+| Pin 6 (GPIO 4)   | SDL  |
 
 `mpu6050_data_t` is the struct where data are stored. The MPU6050 can get data about acceleration, gyroscope, and temperature.
 ```
