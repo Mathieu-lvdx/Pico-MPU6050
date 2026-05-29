@@ -2,21 +2,21 @@
 #include "hardware/i2c.h"
 #include "mpu6050.h"
 
+#define PIN_SDA 4
+#define PIN_SCL 5
+
 i2c_inst_t* I2C_PORT = i2c0;
 
 const uint8_t addr = 0x68;
 const uint8_t reg = 0x3B;
-
-const uint8_t PIN_SDA = 4;
-const uint8_t PIN_SCL = 5;
 
 void mpu6050_write_byte(uint8_t reg, uint8_t data) {
     uint8_t buf[2] = {reg, data};
     i2c_write_blocking(I2C_PORT, addr, buf, 2, false);
 }
 
-int16_t read_word(uint8_t high, uint8_t low) {
-    return (int16_t)((high << 8) | low);
+inline int16_t read_word(uint8_t high, uint8_t low) {
+    return (high << 8) | low;
 }
 
 void mpu6050_get_data(mpu6050_data_t* dataStruct) {
